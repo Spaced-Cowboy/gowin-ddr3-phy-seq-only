@@ -1,0 +1,21 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW2A-18" pn="GW2A-LV18PG256C8/I7">gw2a18-002</Device>
+    <FileList>
+        <File path="src/BrianHG_DDR3_CMD_SEQUENCER_v16.sv" type="file.verilog" enable="1"/>
+        <File path="src/BrianHG_DDR3_GEN_tCK.sv" type="file.verilog" enable="1"/>
+        <File path="src/BrianHG_DDR3_IO_PORT_ALTERA.sv" type="file.verilog" enable="1"/>
+        <File path="src/BrianHG_DDR3_PHY_SEQ_v16.sv" type="file.verilog" enable="1"/>
+        <File path="src/BrianHG_DDR3_PLL.sv" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_io_port_gowin.sv" type="file.verilog" enable="1"/>
+        <File path="src/gowin_ddr_clocking.sv" type="file.verilog" enable="1"/>
+        <File path="src/rs232_DEBUGGER.v" type="file.verilog" enable="1"/>
+        <File path="src/sync_rs232_uart.v" type="file.verilog" enable="1"/>
+        <File path="src/top.sv" type="file.verilog" enable="1"/>
+        <File path="src/ddr3-gowin.cst" type="file.cst" enable="1"/>
+        <File path="src/ddr3-gowin.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>
