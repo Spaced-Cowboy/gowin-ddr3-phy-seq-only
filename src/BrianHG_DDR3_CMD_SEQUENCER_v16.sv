@@ -114,14 +114,14 @@ logic                         S1_ready     =0, S2_ready     =0, S3_ready     =0,
 logic                         S1_ack       =0, S2_ack       =0, S3_ack       =0, S4_ack       =0;
 logic                         S1_load      =0, S2_load      =0, S3_load      =0, S4_load      =0;
 logic                         S1_busy      =0, S4_busy      =0;
-(*preserve*) logic [DDR3_WIDTH_ROW-1:0]    bank_row_mem [0:(2**DDR3_WIDTH_BANK-1)] = '{default:'0} ; // A register of each bank's previously accessed row,
-(*preserve*) logic [15:0]                  bank_mem_in_compare=0, row_in_compare=0 ;
+logic [DDR3_WIDTH_ROW-1:0]    bank_row_mem [0:(2**DDR3_WIDTH_BANK-1)] = '{default:'0} /* synthesis syn_ramstyle = "registers" */; // A register of each bank's previously accessed row,
+(*preserve*) logic [15:0]                  bank_mem_in_compare=0, row_in_compare=0  /* synthesis syn_preserve = 1 */;
 //logic [3:0]                   S2_BANK_MATCH=0;
-(*preserve*) logic                         S3_BANK_MATCH=0;
+(*preserve*) logic                         S3_BANK_MATCH=0 /* synthesis syn_preserve = 1 */;
 
 logic                         phold        =0;
 
-(*preserve*) logic [2**DDR3_WIDTH_BANK-1:0] BANK_ACT     = 0 ; // True when a bank's row has been activated.  When set, a PRECHARGE
+(*preserve*) logic [2**DDR3_WIDTH_BANK-1:0] BANK_ACT     = 0 /* synthesis syn_preserve = 1 */; // True when a bank's row has been activated.  When set, a PRECHARGE
                                                                // is required before a new ACTIVATE command is requested on the same bank.
 (*preserve*) logic                          BANK_ACT_ANY = 0 ; // This flag is cleared during a precharge all, and set during an activate command.
 
@@ -165,7 +165,7 @@ localparam bit [7:0] TXB_NOP  = 8'b10000000 ; // Device NOP + deselect.
 logic                        vect_shift_out ;
 logic [PORT_VECTOR_SIZE-1:0] vect_fifo_data_out;
 
-(*preserve*) logic reset_latch,reset_latch2;
+(*preserve*) logic reset_latch,reset_latch2 /* synthesis syn_preserve = 1 */;
 logic [3:0]                  RCP_h=0,RCP_l=0;
 
 

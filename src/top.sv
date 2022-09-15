@@ -25,7 +25,7 @@ module top
 	parameter int        CLK_KHZ_IN              = 27000,
 
 	// Multiply factor to generate the DDR MTPS speed divided by 2.     
-	parameter int        CLK_IN_MULT             = 20,               
+	parameter int        CLK_IN_MULT             = 24,               
 	
 	// Divide factor.  When CLK_KHZ_IN is 25k,50k,75k,100k,125k,150k, 
 	// use (correspondingly) 2,4,6,8,10,12.

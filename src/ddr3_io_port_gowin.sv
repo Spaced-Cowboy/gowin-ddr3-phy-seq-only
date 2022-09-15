@@ -69,7 +69,7 @@ parameter bit        CMD_ADD_DLY             = 0,                // ************
 parameter int        RDQ_SYNC_CHAIN          = CMD_ADD_DLY,      // ****************** Use 0 to minimize Logic Cell / LUT count. ***************************
                                                                  // Adds # of FIFO logic cell steps in the DDR input to help increase FMAX for the DDR_CLK_RDQ domain and crossing to the DDR_CK domain.
 
-parameter int        WDQ_SYNC_CHAIN          = 2 + CMD_ADD_DLY - WDQ_CLK_270, // + ((CLK_KHZ_IN*CLK_IN_MULT/CLK_IN_DIV)>=450000),  
+parameter int        WDQ_SYNC_CHAIN          = 3 + CMD_ADD_DLY - WDQ_CLK_270, // + ((CLK_KHZ_IN*CLK_IN_MULT/CLK_IN_DIV)>=450000),  
                                                                  // MAXIMUM & Optimum = 4 + CMD_ADD_DLY - WDQ_CLK_270 + ((CLK_KHZ_IN*CLK_IN_MULT/CLK_IN_DIV)>=450000),
                                                                  // Shifts the position of the clock transition from DDR_CLK to DDR_CLK_WDQ of the write data FIFO path to the DQ pins.
 
@@ -197,7 +197,7 @@ localparam bit [DQM_WIDTH-1:0] M = {DQM_WIDTH{1'b1}};
 (*preserve*) logic                                RDQS_CACHE_l  [0:(3+RDQ_SYNC_CHAIN)] ;
 (*preserve*) logic      [DQM_WIDTH-1:0]           RDQM_h,RDQM_l;                     // These are dummy placeholders for the DQ's altddio_bidir function.  The are ignored.
 (*preserve*) logic      [DDR3_WIDTH_DQS-1:0]      RDQS_ph,RDQS_pl,RDQS_nh,RDQS_nl	   ;
-(*preserve*) logic      [DDR3_WIDTH_DQS-1:0]      dqs_clk					; // Used to determine which clock we ought to be pumping into the IOBUF
+(*preserve*) logic      [DDR3_WIDTH_DQS-1:0]      dqs_clk				; // Used to determine which clock we ought to be pumping into the IOBUF
 logic      [1:0]                     RDQ_POS                = 0 ;
 
 localparam int  RD_WIDTH  = RDQ_ENABLE_EARLY + 4 + RDQ_DISABLE_LATE ;   // Read window size.
