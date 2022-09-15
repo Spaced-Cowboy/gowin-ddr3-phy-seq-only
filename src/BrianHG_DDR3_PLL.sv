@@ -617,8 +617,8 @@ end
 endgenerate
 
 assign   DDR3_CLK      = PLL1_clk_out[0];      // DDR3 CK clock running at 1/2 the DQ rate.
-assign   DDR3_CLK_WDQ  = DDR3_CLK; //PLL1_clk_out[1];      // DDR3 write data clock 90 degree out of phase running at 1/2 the DQ rate.
-assign   DDR3_CLK_RDQ  = PLL1_clk_out[2];      // DDR3 phase adjustable read data input clock running at 1/2 the DQ rate.
+assign   DDR3_CLK_WDQ  = DDR3_CLK;//PLL1_clk_out[1];      // DDR3 write data clock 90 degree out of phase running at 1/2 the DQ rate.
+assign   DDR3_CLK_RDQ  = DDR3_CLK; //PLL1_clk_out[2];      // DDR3 phase adjustable read data input clock running at 1/2 the DQ rate.
 assign   DDR3_CLK_50   = PLL1_clk_out[3];      // DDR3 clock running at 1/4 the DQ rate.
 assign   DDR3_CLK_25   = PLL1_clk_out[4];      // DDR3 clock running at 1/8 the DQ rate.
 
